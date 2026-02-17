@@ -1,0 +1,95 @@
+# ══════════════════════════════════════════════════════════════
+#  LaTeX .gitignore — keep only source files in version control
+# ══════════════════════════════════════════════════════════════
+
+## Core LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+## Intermediate documents
+*.dvi
+*.xdv
+*-converted-to.*
+
+## Bibliography
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Build tool auxiliaries
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Indices
+*.idx
+*.ilg
+*.ind
+*.ist
+
+## Glossary
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+
+## Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+## Listings
+*.lol
+
+## Makeindex log
+*.mlg
+
+## todonotes
+*.tdo
+
+## hyperref
+*.brf
+
+## tikz
+*.dpth
+*.md5
+*.auxlock
+
+## endfloat
+*.ttt
+*.fff
+
+## Latexian
+TSWLatexianTemp*
+
+## KBibTeX
+*~[0-9]*
+
+## Output PDF (optional — uncomment if you want to track PDFs)
+# *.pdf
+
+## VS Code
+# .vscode/  ← we keep .vscode for shared settings
+
+## OS files
+.DS_Store
+Thumbs.db

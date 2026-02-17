@@ -1,0 +1,128 @@
+{
+  // ═══════════════════════════════════════════════════════════════
+  //  LaTeX Workshop — Overleaf-like experience in VS Code
+  // ═══════════════════════════════════════════════════════════════
+
+  // ── Auto-compile on save (just like Overleaf) ──────────────────
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoBuild.interval": 1000,
+
+  // ── PDF preview side-by-side (like Overleaf's split view) ─────
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.zoom": "page-width",
+
+  // ── SyncTeX: click PDF → jump to source & vice-versa ──────────
+  "latex-workshop.synctex.afterBuild.enabled": true,
+
+  // ── Build recipes (latexmk handles everything automatically) ──
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (lualatex)",
+      "tools": ["lualatexmk"]
+    },
+    {
+      "name": "latexmk (pdflatex)",
+      "tools": ["pdflatexmk"]
+    },
+    {
+      "name": "latexmk (xelatex)",
+      "tools": ["xelatexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+
+  // ── Clean auxiliary files (keep workspace tidy) ────────────────
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.vrb",
+    "*.run.xml",
+    "*.bcf"
+  ],
+
+  // ── IntelliSense & snippets ────────────────────────────────────
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.intellisense.unimathsymbols.enabled": true,
+
+  // ── Formatting ─────────────────────────────────────────────────
+  "editor.wordWrap": "on",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6,
+
+  // ── Spell / grammar checking (LTeX) ────────────────────────────
+  "ltex.language": "en-US",
+  "ltex.enabled": ["latex", "bibtex"],
+
+  // ── File associations ──────────────────────────────────────────
+  "files.associations": {
+    "*.tex": "latex",
+    "*.bib": "bibtex",
+    "*.cls": "latex",
+    "*.sty": "latex"
+  },
+
+  // ── Git settings ───────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false
+}

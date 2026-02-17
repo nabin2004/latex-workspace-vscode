@@ -1,0 +1,130 @@
+\documentclass[12pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{lipsum}  % for demo text — remove in real documents
+
+% ── Page style ────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+% ── Hyperlink colors ─────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Theorem environments ─────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+% ── Title ─────────────────────────────────────────────────────
+\title{\textbf{My First LaTeX Document}\\[0.3em]
+       \large A Starter Template for VS Code + GitHub}
+\author{Your Name}
+\date{\today}
+
+% ══════════════════════════════════════════════════════════════
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% ── Section 1 ─────────────────────────────────────────────────
+\section{Introduction}
+
+Welcome to your local \LaTeX{} environment! This setup gives you
+an \textbf{Overleaf-like experience} right inside VS Code:
+
+\begin{itemize}
+    \item \textbf{Auto-compile on save} — just press \texttt{Ctrl+S}
+    \item \textbf{Side-by-side PDF preview} — click the magnifying glass icon
+    \item \textbf{SyncTeX} — \texttt{Ctrl+Click} on the PDF to jump to source
+    \item \textbf{Git integration} — commit and push from the sidebar
+    \item \textbf{Spell \& grammar check} — powered by LTeX
+\end{itemize}
+
+% ── Section 2 ─────────────────────────────────────────────────
+\section{Mathematics}
+
+Here's the famous Euler's identity:
+\begin{equation}
+    e^{i\pi} + 1 = 0
+\end{equation}
+
+And the quadratic formula:
+\begin{equation}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+
+\begin{theorem}[Pythagorean Theorem]
+    For a right triangle with legs $a$, $b$ and hypotenuse $c$:
+    \[ a^2 + b^2 = c^2 \]
+\end{theorem}
+
+% ── Section 3 ─────────────────────────────────────────────────
+\section{Tables and Figures}
+
+\begin{table}[h]
+    \centering
+    \caption{A sample table}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Feature} & \textbf{Overleaf} & \textbf{VS Code + LaTeX Workshop} \\
+        \midrule
+        Auto-compile    & \checkmark & \checkmark \\
+        PDF preview     & \checkmark & \checkmark \\
+        Git integration & Limited    & Full       \\
+        Offline work    & \texttimes & \checkmark \\
+        Free            & Partial    & \checkmark \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% ── Section 4 ─────────────────────────────────────────────────
+\section{Getting Started with GitHub}
+
+\begin{enumerate}
+    \item Create a repository on \href{https://github.com}{GitHub}
+    \item Add the remote: \texttt{git remote add origin <URL>}
+    \item Stage, commit, and push:
+    \begin{verbatim}
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin main
+    \end{verbatim}
+\end{enumerate}
+
+Or simply use the \textbf{Source Control} panel in VS Code's sidebar!
+
+% ── Section 5 ─────────────────────────────────────────────────
+\section{Useful Shortcuts}
+
+\begin{description}
+    \item[\texttt{Ctrl+S}] Save and auto-compile
+    \item[\texttt{Ctrl+Alt+V}] Open PDF preview
+    \item[\texttt{Ctrl+Click} on PDF] Jump to source (SyncTeX)
+    \item[\texttt{Ctrl+Shift+G}] Open Git panel
+    \item[\texttt{Ctrl+Space}] Trigger LaTeX IntelliSense
+\end{description}
+
+\lipsum[1] % Remove this line — it's just filler text for demo
+
+\end{document}
