@@ -93,3 +93,6 @@ TSWLatexianTemp*
 ## OS files
 .DS_Store
 Thumbs.db
+
+## Docker output directory
+output/

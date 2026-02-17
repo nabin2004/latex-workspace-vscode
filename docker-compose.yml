@@ -1,0 +1,60 @@
+# ══════════════════════════════════════════════════════════════
+#  docker-compose.yml — convenience wrappers for LaTeX builds
+# ══════════════════════════════════════════════════════════════
+#
+#  Usage:
+#    docker compose run --rm build        # compile once → output/main.pdf
+#    docker compose run --rm watch        # auto-recompile on file changes
+#    docker compose run --rm clean        # remove build artifacts
+#    docker compose run --rm shell        # interactive TeX shell
+# ══════════════════════════════════════════════════════════════
+
+services:
+  # ── One-shot PDF build ──────────────────────────────────────
+  build:
+    image: latex-env
+    build:
+      context: .
+      target: builder
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      latexmk -pdf -interaction=nonstopmode -outdir=output main.tex
+
+  # ── Continuous watch mode (recompile on save) ───────────────
+  watch:
+    image: latex-env
+    build:
+      context: .
+      target: builder
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      latexmk -pdf -pvc -interaction=nonstopmode -outdir=output main.tex
+
+  # ── Clean build artifacts ───────────────────────────────────
+  clean:
+    image: latex-env
+    build:
+      context: .
+      target: builder
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      latexmk -C -outdir=output
+
+  # ── Interactive shell ───────────────────────────────────────
+  shell:
+    image: latex-env
+    build:
+      context: .
+      target: builder
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash
